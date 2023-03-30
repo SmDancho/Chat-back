@@ -60,7 +60,8 @@ io.on('connection', (socket) => {
               console.log(error);
             }
           });
-          return conncetion.query(updateMessages, [saveToDBData, userName]);
+          conncetion.query(updateMessages, [saveToDBData, userName]);
+          return;
         }
         conncetion.query(updateMessages, [saveToDBData, userName]);
       });
