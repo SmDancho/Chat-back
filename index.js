@@ -38,13 +38,11 @@ const createUser = 'INSERT INTO chatUsers (name) VALUES (?)';
 
 io.on('connection', (socket) => {
   socket.on('user_connected', (username) => {
- 
     users[username] = socket.id;
 
     socket.on('private message', (data) => {
       const userName = data.recipient;
-   
-      
+
       const { message, Topic, sender, isVisible } = data;
 
       const saveToDBData = JSON.stringify({
@@ -62,9 +60,8 @@ io.on('connection', (socket) => {
               console.log(error);
             }
           });
+          conncetion.query(updateMessages, [saveToDBData, userName]);
         }
-
-        conncetion.query(updateMessages, [saveToDBData, userName]);
       });
 
       const recipientSocketId = users[data.recipient];
