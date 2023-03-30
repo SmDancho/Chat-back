@@ -59,7 +59,6 @@ io.on('connection', (socket) => {
             if (error) {
               console.log(error);
             }
-            conncetion.query(updateMessages, [saveToDBData, userName]);
           });
         }
         conncetion.query(updateMessages, [saveToDBData, userName]);
