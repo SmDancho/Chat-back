@@ -62,6 +62,7 @@ io.on('connection', (socket) => {
           });
           conncetion.query(updateMessages, [saveToDBData, userName]);
         }
+        conncetion.query(updateMessages, [saveToDBData, userName]);
       });
 
       const recipientSocketId = users[data.recipient];
